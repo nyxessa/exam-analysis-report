@@ -5,8 +5,9 @@
 
 *An offline skill package that turns one exam-paper spreadsheet into per-student PDF analysis reports (2-page A4 each) plus a one-page class panel. Python 3.9+ standard library only; PDFs are printed by headless Edge/Chrome. No server, no network, no data leaves the machine.*
 
-![学生报告示例](docs/demo-report.png)
-![班级卷面分析示例](docs/demo-class-panel.png)
+<img src="docs/demo-report.png" width="620" alt="学生报告示例：分数、个人点评、班级分布、模块得分对比">
+
+<img src="docs/demo-class-panel.png" width="720" alt="班级卷面分析示例：知识结构、难度分布、常见错因、各题得分率">
 
 > 上面两张图由仓库自带的 `demo/`（3 个虚构学生、6 道题）一键跑出，不含任何真实数据；
 > 示例校徽由脚本现场生成，主题色是从这枚校徽里自动取出的。
