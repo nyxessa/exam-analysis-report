@@ -1,0 +1,61 @@
+{
+ "_说明": "跨学科通用错因字典。code 写进 paper.json 的 questions[].errors；label 显示给老师；hint 是通用回补动作。不绑定任何单科——语文/数学/外语/理化生/政史地都能用。教师还可在每题写自由文本错因（questions[].errors_note），与字典项并存、在报告里优先显示。",
+ "tags": [
+  {
+   "code": "knowledge",
+   "label": "知识没掌握",
+   "short": "知识",
+   "hint": "回到课本对应段落，让学生用自己的话讲一遍这个知识点，再做题",
+   "color": "#c0392b"
+  },
+  {
+   "code": "method",
+   "label": "方法没想到",
+   "short": "方法",
+   "hint": "先认出这道题属于哪一类，把该类题的通用步骤写出来再动笔",
+   "color": "#d2691e"
+  },
+  {
+   "code": "reading",
+   "label": "审题失误",
+   "short": "审题",
+   "hint": "圈出题干里的条件和要求，先写清「已知什么、求什么」再作答",
+   "color": "#b8860b"
+  },
+  {
+   "code": "calc",
+   "label": "计算失误",
+   "short": "计算",
+   "hint": "先列式后代入，分步写，最后核对单位与结果的合理范围",
+   "color": "#1f7a56"
+  },
+  {
+   "code": "expression",
+   "label": "表达不规范",
+   "short": "表达",
+   "hint": "按评分点补过程或补语言组织，答案要有依据和结论",
+   "color": "#3d6c9e"
+  },
+  {
+   "code": "transfer",
+   "label": "不会迁移运用",
+   "short": "迁移",
+   "hint": "从做过的基础题出发，找出这道题与它的相同点和不同点",
+   "color": "#7d3c8a"
+  },
+  {
+   "code": "time",
+   "label": "时间不够",
+   "short": "时间",
+   "hint": "限时训练：先做会做的，按分值分配时间，留 5 分钟检查",
+   "color": "#8a6d3b"
+  },
+  {
+   "code": "careless",
+   "label": "非智力失分",
+   "short": "粗心",
+   "hint": "交卷前专项检查：题号、抄写、单位、有没有漏题",
+   "color": "#a08c7a"
+  }
+ ]
+}

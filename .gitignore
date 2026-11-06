@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# 使用者自己的考试产物不要进库（在各自工作目录里加同样的规则）
+reports/
+台账.csv
+
+# 系统
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 本地配置
+.idea/
+.vscode/
+*.local.*

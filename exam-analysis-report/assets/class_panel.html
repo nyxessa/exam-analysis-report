@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<title>卷面分析 · @@EXAM_NAME@@</title>
+<style>
+  :root {
+    --accent: @@ACCENT@@; --accent-soft: @@ACCENT_SOFT@@;
+    --accent-line: @@ACCENT_LINE@@; --accent-badge: @@ACCENT_BADGE@@;
+    --accent-connector: @@ACCENT_CONNECTOR@@; --accent-bar: @@ACCENT_BAR@@;
+  }
+  @page { size: A4; margin: 11mm 10mm 9mm; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family:"Microsoft YaHei","微软雅黑",sans-serif; color:#1f2328; font-size:8.6pt; line-height:1.55;
+         -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .hd { display:flex; align-items:flex-end; justify-content:space-between; border-bottom:2.2pt solid var(--accent); padding-bottom:5px; }
+  .hd h1 { font-size:17pt; margin:0; letter-spacing:1.5px; color:var(--accent); }
+  .hd .sub { font-size:7.6pt; color:#68707C; text-align:right; }
+  .kpi { display:grid; grid-template-columns:repeat(5,1fr); gap:0; margin:6px 0 8px; background:#f4f6f8;
+         border-left:2.5pt solid var(--accent); padding:5px 6px; text-align:center; }
+  .kpi div { border-right:1px solid #e2e7ec; }
+  .kpi div:last-child { border-right:0; }
+  .kpi b { display:block; font-size:12pt; color:var(--accent); font-variant-numeric:tabular-nums; }
+  .kpi span { font-size:7pt; color:#6b7683; }
+  h2 { font-size:10.2pt; margin:7px 0 4px; color:var(--accent); }
+  h2::before { content:""; display:inline-block; width:3pt; height:10pt; background:#ED3C3A; vertical-align:-1.5pt; margin-right:6px; }
+  table { width:100%; border-collapse:collapse; }
+  th,td { border:.5pt solid #ccd4dc; padding:3.2px 5px; font-size:8.2pt; }
+  th { background:var(--accent-soft); font-size:7.4pt; color:var(--accent); }
+  td.num { text-align:center; font-variant-numeric:tabular-nums; white-space:nowrap; }
+  .cols { display:grid; grid-template-columns:1.15fr 1fr; gap:10px; }
+  .bar { position:relative; height:7pt; background:#eceff2; border-radius:1.5pt; overflow:hidden; }
+  .bar i { position:absolute; inset:0 auto 0 0; background:var(--accent-bar); border-radius:1.5pt; }
+  .bar i.weak { background:#ED3C3A; }
+  .lv { display:inline-block; padding:0 4px; border-radius:2px; font-size:6.8pt; white-space:nowrap; background:var(--accent-soft); color:#68707C; }
+  .lv.weak { background:#fdecea; color:#ED3C3A; font-weight:700; }
+  .lv.half { background:#fdf3e2; color:#9a6a12; }
+  .lv.ok { background:#e6f2ec; color:#1f7a56; }
+  .ai { border:.7pt solid #dde3e9; border-left:2.5pt solid var(--accent); padding:6px 9px; margin-top:8px; background:#fcfdfe; margin-top:6px; }
+  .ai h3 { margin:0 0 3px; font-size:9pt; color:var(--accent); }
+  .ai h3 .badge { font-size:6.6pt; font-weight:400; color:var(--accent); background:var(--accent-badge); padding:1px 5px; border-radius:8px; margin-left:5px; }
+  .ai p { margin:0; line-height:1.7; text-indent:2em; text-align:justify; font-size:8.6pt; }
+  .ai p b { color:var(--accent); }
+  .ai ol { margin:2px 0 0; padding-left:16px; }
+  .ai li { margin:0 0 1px; line-height:1.45; }
+  .taglist { display:flex; flex-wrap:wrap; gap:4px; margin-top:3px; }
+  .t { font-size:7pt; background:#fdecea; color:#ED3C3A; border-radius:8px; padding:1px 7px; }
+  .t b { font-weight:700; }
+  .foot { margin-top:8px; padding-top:5px; font-size:6.8pt; color:#9ba5b0; border-top:.5pt solid #e6eaee;
+          display:flex; justify-content:space-between; }
+  .note { font-size:6.8pt; color:#8a94a0; margin-top:3px; }
+</style></head><body>
+
+<div class="hd">
+  <h1>卷面分析 · @@EXAM_NAME@@</h1>
+  <div class="sub">@@GRADE_SUBJECT@@　满分 @@FULL@@<br>@@DATE@@　教师版</div>
+</div>
+
+<div class="kpi">
+  <div><b>@@N@@</b><span>参考人数</span></div>
+  <div><b>@@AVG@@</b><span>班均</span></div>
+  <div><b>@@MAX@@</b><span>最高</span></div>
+  <div><b>@@MIN@@</b><span>最低</span></div>
+  <div><b>@@GRADEDIST@@</b><span>A/B/C/D/E</span></div>
+</div>
+
+<div class="cols">
+  <div>
+    <h2>知识结构（按知识点聚合）</h2>
+    <table>
+      <thead><tr><th style="width:40%">知识点</th><th style="width:11%">题号</th>
+        <th style="width:8%">分值</th><th style="width:21%">得分率</th><th style="width:20%">题量</th></tr></thead>
+      <tbody>@@KP_ROWS@@</tbody>
+    </table>
+    <div class="note">得分率 = 班均在本题组的得分 ÷ 分值；水平三档 ≥80% 掌握 / 60–80% 待巩固 / &lt;60% 薄弱，1–2 题标「n题」。</div>
+  </div>
+  <div>
+    <h2>难度分布（按班均得分率换算）</h2>
+    <table>
+      <thead><tr><th style="width:22%">档位</th><th style="width:12%">题数</th><th>题号</th></tr></thead>
+      <tbody>@@DIFF_ROWS@@</tbody>
+    </table>
+    <div class="note">难度系数＝班均 ÷ 满分（越大越简单）；分档 易 ≥0.75 / 中 0.60–0.74 / 难 &lt;0.60。<br>
+      等级按得分率：A≥90% / B≥70% / C≥30% / D≥10% / E&lt;10%。</div>
+    <h2>常见错因（按涉及分值）</h2>
+    <div class="taglist">@@ERR_TAGS@@</div>
+    <div class="note">来自题级错因标注；同一题可有多因，分值不相加。</div>
+@@P_PAPER_BLOCK@@
+
+  </div>
+</div>
+
+<h2 style="margin-top:10px">各题得分率</h2>
+@@QBAR_SVG@@
+<div class="note">柱高＝该题班均得分率；红色为低于 60% 的题。题号下方括号内为分值。</div>
+
+<div class="foot"><span>@@EXAM_NAME@@ · 卷面分析 · 教师版</span></div>
+</body></html>
